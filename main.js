@@ -7,11 +7,11 @@ function saludar() {
 saludar();
 
 const usuarios = [
-    { username: 'Pablo', password: '123456'},
-    { username: 'Charlie', password: '789' },
-    { username: 'Liv', password: '111'}
+  { username: 'Pablo', password: '123456'},
+  { username: 'Charlie', password: '789' },
+  { username: 'Liv', password: '111'}
 ];
-console.log(usuarios.length);
+console.log('Usuarios registrados: '+ usuarios.length);
 
 const registrar = () => {
     const username = prompt('Ingrese su nombre:')
@@ -19,11 +19,11 @@ const registrar = () => {
 
     const usuarioExistente = usuarios.find(user => user.username === username)
     if (usuarioExistente){
-        alert('El usuario ingresado ya existe')
+        alert('El usuario ingresado ya existe, vuelva a intentarlo.')
     }else {
         usuarios.push({username, password});
         alert('¡Usuario registrado con exito!')
-        console.log("Usuarios registrados:", usuarios);
+        console.log(`"Usuarios registrados: ${usuarios}`);
     }
 }
 
@@ -37,8 +37,8 @@ const login = () => {
 
     const usuario = usuarios.find( user => user.username === username && user.password === password)
     if (usuario){
-        alert("Bienvenido, ${username}!");
-        console.log(usuario)
+        alert(`Bienvenido, ${username}!`);
+        console.log(`"Usuarios registrados: ${usuarios}`); 
     }else {
         alert("Nombre de usuario o contraseña incorrectos.")
     }
