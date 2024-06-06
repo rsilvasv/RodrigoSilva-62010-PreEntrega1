@@ -7,41 +7,66 @@ function saludar() {
 saludar();
 
 const usuarios = [
-  { username: 'Pablo', password: '123456'},
+  { username: 'Pablo', password: '123'},
   { username: 'Charlie', password: '789' },
   { username: 'Liv', password: '111'}
 ];
-console.log('Usuarios registrados: '+ usuarios.length);
+console.log('Usuarios registrados: ', usuarios);
 
 const registrar = () => {
-    const username = prompt('Ingrese su nombre:')
-    const password = prompt('Ingrese su contraseña:')
+  const username = prompt('Ingrese su nombre:');
+  console.log('Nombre de usuario ingresado:', username);
+  const password = prompt('Ingrese su contraseña:');
+  console.log('Contraseña ingresada:', password);
 
-    const usuarioExistente = usuarios.find(user => user.username === username)
-    if (usuarioExistente){
-        alert('El usuario ingresado ya existe, vuelva a intentarlo.')
-    }else {
-        usuarios.push({username, password});
-        alert('¡Usuario registrado con exito!')
-        console.log(`"Usuarios registrados: ${usuarios}`);
+
+  let usuarioExistente = false;
+
+  for (let i = 0; i < usuarios.length; i++) {
+    console.log('Comparando con el usuario ingresado:', username);
+
+    if (username === usuarios[i].username) {
+      usuarioExistente = true;
+      console.log('Este usuario ya existe:', usuarios[i].username);
+      break; 
     }
-}
+  }
 
+  if (usuarioExistente) {
+    alert('El usuario ingresado ya existe, vuelva a intentarlo.');
+  } else {
+    usuarios.push({ username, password });
+    alert('¡Usuario registrado con éxito!');
+    console.log('Usuarios registrados después de registrar:', usuarios);
+  }
+};
 
 // ----> LOGIN
 // Funcion para logear a un usuario
 
 const login = () => {
-    const username = prompt('Ingrese su usuario:')
-    const password = prompt('Ingrese su contraseña:')
+  const username = prompt('Ingrese su usuario:');
+  const password = prompt('Ingrese su contraseña:');
 
-    const usuario = usuarios.find( user => user.username === username && user.password === password)
-    if (usuario){
-        alert(`Bienvenido, ${username}!`);
-        console.log(`"Usuarios registrados: ${usuarios}`); 
-    }else {
-        alert("Nombre de usuario o contraseña incorrectos.")
+  let usuarioValido = false;
+
+  for (let i = 0; i < usuarios.length; i++) {
+    console.log('Comparando con el usuario en la lista:', usuarios[i].username);
+
+    if (username === usuarios[i].username && password === usuarios[i].password) {
+      usuarioValido = true;
+      console.log('Usuario y contraseña correctos:', usuarios[i].username + " , " + usuarios[i].password);
+      break; 
     }
+  }
+
+  if (usuarioValido) {
+    alert(`Bienvenido, ${username}!`);
+  } else {
+    alert("Nombre de usuario o contraseña incorrectos.");
+  }
+
+  console.log('Usuarios registrados después de login:', usuarios);
 };
 
 const menu = () => {
