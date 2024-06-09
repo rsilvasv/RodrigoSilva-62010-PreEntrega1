@@ -1,10 +1,10 @@
 // ----> SALUDO
-// Funcion Saludar
+
 
 function saludar() {
     alert('¡Bienvenidos a mi primer entrega!');
 }
-saludar();
+// saludar();
 
 const usuarios = [
   { username: 'Pablo', password: '123'},
@@ -13,6 +13,8 @@ const usuarios = [
 ];
 console.log('Usuarios registrados: ', usuarios);
 
+
+// ----> REGISTRO
 const registrar = () => {
   const username = prompt('Ingrese su nombre:');
   console.log('Nombre de usuario ingresado:', username);
@@ -42,7 +44,6 @@ const registrar = () => {
 };
 
 // ----> LOGIN
-// Funcion para logear a un usuario
 
 const login = () => {
   const username = prompt('Ingrese su usuario:');
@@ -72,7 +73,7 @@ const login = () => {
 const menu = () => {
     let opcion;
     do {
-      opcion = prompt("Seleccione una opción:\n1. Registrar\n2. Login\n3. Salir");
+      opcion = prompt("¡Bienvenidos al sistema login!\nSeleccione una opción:\n1. Registrar\n2. Login\n3. Salir");
       switch(opcion) {
         case '1':
           registrar();
@@ -90,3 +91,4 @@ const menu = () => {
 };
 
 menu();
+document.write(usuarios);
