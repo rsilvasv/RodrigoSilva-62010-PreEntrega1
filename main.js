@@ -3,7 +3,7 @@
 function saludar() {
     alert('¡Bienvenidos a mi primer entrega!');
 }
- saludar();
+ // saludar();
 
 const usuarios = [
   { username: 'Pablo', password: '123'},
