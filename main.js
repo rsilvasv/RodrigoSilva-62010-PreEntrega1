@@ -3,8 +3,9 @@
 function saludar() {
     alert('¡Bienvenidos a mi primer entrega!');
 }
- // saludar();
+saludar();
 
+//----> ARRAY USUARIOS
 const usuarios = [
   { username: 'Pablo', password: '123'},
   { username: 'Charlie', password: '789' },
@@ -14,6 +15,7 @@ console.log('Usuarios registrados: ', usuarios);
 
 
 // ----> REGISTRO
+
 const registrar = () => {
   const username = prompt('Ingrese su nombre:');
   console.log('Nombre de usuario ingresado:', username);
@@ -42,6 +44,7 @@ const registrar = () => {
   }
 };
 
+
 // ----> LOGIN
 
 const login = () => {
@@ -69,10 +72,17 @@ const login = () => {
   console.log('Usuarios registrados después de login:', usuarios);
 };
 
+
+//----> MENU PRINCIPAL
+
 const menu = () => {
     let opcion;
     do {
-      opcion = prompt("¡Bienvenidos al sistema login!\nSeleccione una opción:\n1. Registrar\n2. Login\n3. Salir");
+      opcion = prompt("\nSeleccione una opción:\n1. Registrar\n2. Login\n3. Salir");
+      if (opcion === null) {
+        alert("Saliendo...");
+        break; // Salir del bucle si se presiona cancelar
+      }
       switch(opcion) {
         case '1':
           registrar();
