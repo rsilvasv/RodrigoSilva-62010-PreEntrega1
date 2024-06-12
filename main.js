@@ -18,19 +18,18 @@ console.log('Usuarios registrados: ', usuarios);
 
 const registrar = () => {
   const username = prompt('Ingrese su nombre:');
-  console.log('Nombre de usuario ingresado:', username);
   const password = prompt('Ingrese su contraseña:');
-  console.log('Contraseña ingresada:', password);
-
+  
+  alert("Usted ha ingresado: " + username + " y " + password)
 
   let usuarioExistente = false;
 
   for (let i = 0; i < usuarios.length; i++) {
-    console.log('Comparando con el usuario ingresado:', username);
-
+    
     if (username === usuarios[i].username) {
       usuarioExistente = true;
       console.log('Este usuario ya existe:', usuarios[i].username);
+      alert('Comparando con el usuario ingresado:', username);
       break; 
     }
   }
@@ -39,7 +38,7 @@ const registrar = () => {
     alert('El usuario ingresado ya existe, vuelva a intentarlo.');
   } else {
     usuarios.push({ username, password });
-    alert('¡Usuario registrado con éxito!');
+    alert('¡Usuario registrado con éxito! \nUsuarios registrados después de registrar: ' + usuarios.length );
     console.log('Usuarios registrados después de registrar:', usuarios);
   }
 };
